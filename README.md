@@ -24,7 +24,7 @@ Given an incident type (for example, ransomware or phishing), the app generates 
 ## Preview
 
 ### Dashboard
-![Dashboard/chat](screenshots/dashboard)
+![Dashboard/chat](screenshots/dashboard.png)
 
 ### Quick Artifact Analysis
 ![Analyzer](screenshots/analyzer.png)
