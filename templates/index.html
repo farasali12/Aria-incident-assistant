@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA - AI Incident Response Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <h1>ARIA</h1>
+                <p>AI Incident Response Assistant</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Quick Actions</h3>
+                <button id="loadSampleBtn" class="secondary-btn">Load Sample Incident</button>
+                <button id="clearChatBtn" class="secondary-btn">Clear Conversation</button>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Stats</h3>
+                <div class="stat-card">
+                    <span>Total Incidents</span>
+                    <strong id="totalCount">0</strong>
+                </div>
+                <div class="stat-grid">
+                    <div class="mini-stat p1">P1 <span id="p1Count">0</span></div>
+                    <div class="mini-stat p2">P2 <span id="p2Count">0</span></div>
+                    <div class="mini-stat p3">P3 <span id="p3Count">0</span></div>
+                    <div class="mini-stat p4">P4 <span id="p4Count">0</span></div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Recent Logs</h3>
+                <div id="incidentLogs" class="logs-list">
+                    <p class="muted">No incidents logged yet.</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="hero">
+                <div>
+                    <h2>AI Incident Triage Workstation</h2>
+                    <p>Analyze incidents, investigate artifacts, and generate response playbooks.</p>
+                </div>
+            </header>
+
+            <section class="tabs">
+                <button class="tab-btn active" data-tab="chatTab">Incident Chat</button>
+                <button class="tab-btn" data-tab="analyzeTab">Quick Artifact Analysis</button>
+                <button class="tab-btn" data-tab="playbookTab">Playbook Generator</button>
+            </section>
+
+            <section id="chatTab" class="tab-panel active">
+                <div class="panel">
+                    <h3>Incident Chat</h3>
+                    <div id="chatMessages" class="chat-box">
+                        <div class="message assistant">
+                            <div class="message-label">ARIA</div>
+                            <div class="message-body">
+                                Describe a security incident, suspicious event, or investigation scenario and I’ll help triage it.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <textarea id="chatInput" placeholder="Example: Multiple failed logins from one IP followed by suspicious access to payroll files."></textarea>
+                        <button id="sendChatBtn" class="primary-btn">Send</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="analyzeTab" class="tab-panel">
+                <div class="panel">
+                    <h3>Quick Artifact Analysis</h3>
+
+                    <label for="artifactType">Artifact Type</label>
+                    <select id="artifactType">
+                        <option value="ip address">IP Address</option>
+                        <option value="domain">Domain</option>
+                        <option value="hash">File Hash</option>
+                        <option value="email">Email</option>
+                        <option value="log entry">Log Entry</option>
+                    </select>
+
+                    <label for="artifactInput">Artifact</label>
+                    <textarea id="artifactInput" placeholder="Paste the artifact here..."></textarea>
+
+                    <button id="analyzeBtn" class="primary-btn">Analyze Artifact</button>
+
+                    <div id="analysisOutput" class="output-box muted-box">
+                        Analysis output will appear here.
+                    </div>
+                </div>
+            </section>
+
+            <section id="playbookTab" class="tab-panel">
+                <div class="panel">
+                    <h3>Incident Playbook Generator</h3>
+
+                    <label for="playbookInput">Incident Type</label>
+                    <input id="playbookInput" type="text" placeholder="Example: Ransomware outbreak">
+
+                    <button id="playbookBtn" class="primary-btn">Generate Playbook</button>
+
+                    <div id="playbookOutput" class="output-box muted-box">
+                        Playbook output will appear here.
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
