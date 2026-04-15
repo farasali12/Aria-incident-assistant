@@ -30,7 +30,7 @@ Given an incident type (for example, ransomware or phishing), the app generates 
 ![Analyzer](screenshots/analyzer.png)
 
 ### Incident Chat
-![Chat](screenshots/chat.png)
+![Chat](screenshots/playbookGenerator.png)
 
 ---
 
